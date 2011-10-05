@@ -13,3 +13,6 @@ src/.deps
 src/foo/.deps
 stamp-h1
 config.status
+hello
+.dirstamp
+*.o
