@@ -1,0 +1,38 @@
+#CXX = /home/mmm/bin/g++
+
+COMMON = ../common
+VPATH = $(COMMON)/
+
+#CFLAGS = -ansi -pedantic -Wall -O2 -D_REENTRANT -D_GNU_SOURCE
+#CFLAGS = -ansi -pedantic -Wall -O -gstabs+ -D_REENTRANT -D_GNU_SOURCE
+CFLAGS = -pedantic -Wall -O -gstabs+ -D_REENTRANT -D_GNU_SOURCE
+CFLAGS += -ftemplate-depth-17 -funroll-loops -fstrict-aliasing #-fno-gcse
+CFLAGS += -I. -I$(COMMON) -I../include 
+#CFLAGS += -pg
+
+# debug specific flags here
+#CFLAGS += -DTELL_ME -DDONTTHREAD
+CFLAGS += -DTELL_ME 
+
+# Fortran flags here
+FFLAGS = 
+
+#LIBS = -lpthread
+#LIBS = -lblitz -lm
+#LIBS = -lodepack -llapack -lblas
+#LIBS = -llapack -lblas -lg2c -lm
+LIBS = 
+LFLAGS = 
+
+
+# targets
+
+# pattern rules...
+%.o : %.C
+	@echo "---" $@ "---"
+	@$(CXX) $(CFLAGS) -o $@ -c $<
+
+%.o : %.f
+	@echo "---" $@ "---"
+	@g77 $(FFLAGS) -o $@ -c $<
+

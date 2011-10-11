@@ -6,7 +6,7 @@ install-sh
 Makefile.in
 missing
 autom4te.cache
-Makefile
+c++-autotools/Makefile
 config.h
 config.log
 src/.deps
